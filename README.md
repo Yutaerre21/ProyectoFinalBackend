@@ -1,4 +1,6 @@
-# Conserva · CLENA — Proyecto P3
+# Proyecto Final Backend CLENA P3
+
+Repositorio de Conserva: monitoreo y alertas de conservación del Archivo Histórico.
 
 [Repositorio GitHub](https://github.com/Yutaerre21/ProyectoFinalBackend) · [Issue de implementación inicial #1](https://github.com/Yutaerre21/ProyectoFinalBackend/issues/1) · [Integración continua](https://github.com/Yutaerre21/ProyectoFinalBackend/actions)
 

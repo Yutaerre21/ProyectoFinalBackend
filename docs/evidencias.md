@@ -1,6 +1,6 @@
 # Evidencias y estado real
 
-## Importación inicial a GitHub — 1 de noviembre de 2026
+## Importación inicial a GitHub — 2 de noviembre de 2026
 
 - Repositorio: https://github.com/Yutaerre21/ProyectoFinalBackend.
 - Issue real: [#1 — versión inicial de Conserva](https://github.com/Yutaerre21/ProyectoFinalBackend/issues/1).
