@@ -1,0 +1,61 @@
+{
+  "name": "@clena/backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/main.js",
+    "seed": "tsx src/infrastructure/seed.ts",
+    "test": "jest --coverage --runInBand",
+    "test:e2e": "jest --config test/jest-e2e.json --runInBand"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "@nestjs/swagger": "11.4.7",
+    "@nestjs/throttler": "^6.4.0",
+    "bcryptjs": "^3.0.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "dotenv": "^17.2.0",
+    "helmet": "^8.1.0",
+    "pg": "^8.16.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "typeorm": "^0.3.27"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^11.1.0",
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.0",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.4.5",
+    "tsx": "^4.20.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.spec.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/domain/**/*.ts",
+      "src/application/**/*.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 70,
+        "statements": 70,
+        "functions": 70,
+        "branches": 70
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+node_modules
+**/node_modules
+**/dist
+**/coverage
+.git
+.env
+docs/enunciado-extraido.txt
+.dependency-resolve
+audit-runtime.json
+accessibility-check.json
+test-results
+*.dump
+entrega

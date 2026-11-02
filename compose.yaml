@@ -1,0 +1,57 @@
+services:
+  init:
+    image: node:24-alpine
+    volumes:
+      - config:/config
+      - ./scripts/init-secrets.cjs:/init-secrets.cjs:ro
+    command: ['node', '/init-secrets.cjs']
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: clena
+      POSTGRES_DB: clena
+      POSTGRES_PASSWORD_FILE: /run/config/db_password
+    volumes:
+      - database:/var/lib/postgresql/data
+      - config:/run/config:ro
+    depends_on:
+      init: { condition: service_completed_successfully }
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U clena -d clena']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  backend:
+    build: { context: ., target: backend }
+    environment:
+      PORT: 3000
+      FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:-http://localhost:8080}
+      SEED_DEMO: ${SEED_DEMO:-true}
+      SCHEDULER_ENABLED: 'true'
+    volumes:
+      - config:/run/config:ro
+    ports: ['127.0.0.1:3000:3000']
+    depends_on:
+      db: { condition: service_healthy }
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://localhost:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  frontend:
+    build: { context: ., target: frontend }
+    ports: ['${WEB_PORT:-8080}:80']
+    depends_on:
+      backend: { condition: service_healthy }
+    restart: unless-stopped
+volumes:
+  database:
+  config:

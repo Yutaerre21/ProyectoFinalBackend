@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+package-lock.json
+docs/enunciado-extraido.txt
+docs/capturas
+test-results
+audit-runtime.json
+scripts/*.py
+accessibility-check.json
+.dependency-resolve
