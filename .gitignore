@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+backups/
+playwright-report/
+test-results/
+.dependency-resolve/
+audit-runtime.json
+accessibility-check.json
+*.dump
+entrega/

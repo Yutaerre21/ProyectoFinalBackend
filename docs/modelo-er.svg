@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="970" height="790" viewBox="0 0 970 790">
+<rect width="970" height="790" fill="#f5f6f2"/>
+<style>text{font-family:Arial,sans-serif;font-size:14px;fill:#254536}.name{font-size:18px;font-weight:bold;fill:white}.edge{fill:none;stroke:#7b9078;stroke-width:2}.label{font-size:12px}</style>
+<text x="30" y="30" style="font-size:22px;font-weight:bold">CONSERVA · Modelo entidad-relación P3</text>
+<path class="edge" d="M 270 130 L 350 130"/>
+<text class="label" x="290" y="120">1 : N</text>
+<path class="edge" d="M 150 205 L 150 240 L 800 240 L 800 290"/>
+<text class="label" x="405" y="232">users 1 : N inspections</text>
+<path class="edge" d="M 270 365 L 350 365"/>
+<text class="label" x="289" y="352">1 : N</text>
+<path class="edge" d="M 590 365 L 680 365"/>
+<text class="label" x="620" y="353">1 : N</text>
+<path class="edge" d="M 150 440 L 150 545"/>
+<text class="label" x="158" y="505">1 : N</text>
+<path class="edge" d="M 210 440 L 210 505 L 400 505 L 400 545"/>
+<text class="label" x="240" y="494">deposit 1 : N alerts</text>
+<path class="edge" d="M 480 440 L 480 545"/>
+<text class="label" x="489" y="505">1 : N</text>
+<path class="edge" d="M 590 620 L 680 620"/>
+<text class="label" x="620" y="607">1 : N</text>
+<path class="edge" d="M 270 85 L 950 85 L 950 750 L 800 750 L 800 695"/>
+<text class="label" x="737" y="740">users 1 : N tasks</text>
+<rect x="30" y="55" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M38 55 H262 Q270 55 270 63 V93 H30 V63 Q30 55 38 55" fill="#244f40"/>
+<text class="name" x="44" y="80">users</text>
+<text x="44" y="115">id PK</text>
+<text x="44" y="138">email UNIQUE</text>
+<text x="44" y="161">name, role, active</text>
+<text x="44" y="184">passwordHash, consentAt</text>
+<rect x="350" y="55" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M358 55 H582 Q590 55 590 63 V93 H350 V63 Q350 55 358 55" fill="#244f40"/>
+<text class="name" x="364" y="80">sessions</text>
+<text x="364" y="115">id PK</text>
+<text x="364" y="138">userId FK</text>
+<text x="364" y="161">tokenHash</text>
+<text x="364" y="184">expiresAt</text>
+<rect x="30" y="290" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M38 290 H262 Q270 290 270 298 V328 H30 V298 Q30 290 38 290" fill="#244f40"/>
+<text class="name" x="44" y="315">deposits</text>
+<text x="44" y="350">id PK</text>
+<text x="44" y="373">name UNIQUE</text>
+<text x="44" y="396">tempMin / tempMax</text>
+<text x="44" y="419">humidityMin / humidityMax</text>
+<rect x="350" y="290" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M358 290 H582 Q590 290 590 298 V328 H350 V298 Q350 290 358 290" fill="#244f40"/>
+<text class="name" x="364" y="315">records</text>
+<text x="364" y="350">id PK, code UNIQUE</text>
+<text x="364" y="373">depositId FK</text>
+<text x="364" y="396">title, shelf, box</text>
+<text x="364" y="419">condition, nextInspectionAt</text>
+<rect x="680" y="290" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M688 290 H912 Q920 290 920 298 V328 H680 V298 Q680 290 688 290" fill="#244f40"/>
+<text class="name" x="694" y="315">inspections</text>
+<text x="694" y="350">id PK</text>
+<text x="694" y="373">recordId FK, inspectorId FK</text>
+<text x="694" y="396">condition, notes</text>
+<text x="694" y="419">pests, wear, moisture</text>
+<rect x="30" y="545" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M38 545 H262 Q270 545 270 553 V583 H30 V553 Q30 545 38 545" fill="#244f40"/>
+<text class="name" x="44" y="570">readings</text>
+<text x="44" y="605">id PK, depositId FK</text>
+<text x="44" y="628">sensorId, measuredAt</text>
+<text x="44" y="651">temperature</text>
+<text x="44" y="674">humidity</text>
+<rect x="350" y="545" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M358 545 H582 Q590 545 590 553 V583 H350 V553 Q350 545 358 545" fill="#244f40"/>
+<text class="name" x="364" y="570">alerts</text>
+<text x="364" y="605">id PK, depositId FK</text>
+<text x="364" y="628">recordId FK nullable</text>
+<text x="364" y="651">kind, priority, key</text>
+<text x="364" y="674">status, resolvedAt</text>
+<rect x="680" y="545" width="240" height="150" rx="8" fill="white" stroke="#d4dfd1"/>
+<path d="M688 545 H912 Q920 545 920 553 V583 H680 V553 Q680 545 688 545" fill="#244f40"/>
+<text class="name" x="694" y="570">tasks</text>
+<text x="694" y="605">id PK, alertId FK</text>
+<text x="694" y="628">assigneeId FK</text>
+<text x="694" y="651">title, dueAt, status</text>
+<text x="694" y="674">resolution, completedAt</text>
+</svg>

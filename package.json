@@ -1,0 +1,37 @@
+{
+  "name": "clena-conserva",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "lint": "eslint backend/src backend/test frontend/src && npm run typecheck --workspaces",
+    "test": "npm run test -w backend",
+    "test:e2e": "npm run test:e2e -w backend",
+    "test:e2e:docker": "node scripts/test-e2e.mjs",
+    "test:browser": "playwright test",
+    "format": "prettier --write backend/src backend/test frontend/src *.json *.ts *.mjs .github compose.yaml docs/*.md README.md scripts/*.*",
+    "dev:api": "npm run dev -w backend",
+    "dev:web": "npm run dev -w frontend",
+    "simulate": "node scripts/simulate.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.0",
+    "eslint": "^9.39.0",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0"
+  },
+  "overrides": {
+    "@nestjs/swagger": {
+      "js-yaml": "5.4.3"
+    },
+    "@istanbuljs/load-nyc-config": {
+      "js-yaml": "4.3.2"
+    }
+  }
+}
