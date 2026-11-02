@@ -1,5 +1,5 @@
-# Proyecto Final Backend ? CLENA P3
+# Proyecto Final Backend CLENA P3
 
-Repositorio de Conserva: monitoreo y alertas de conservaci?n del Archivo Hist?rico.
+Repositorio de Conserva: monitoreo y alertas de conservación del Archivo Histórico.
 
-La implementaci?n inicial se incorporar? mediante una rama feat vinculada a un Issue y un Pull Request revisado. Esta base solo inicializa el repositorio.
+La implementación inicial se incorpora mediante una rama feat vinculada a un Issue y un Pull Request revisado. Esta base solo inicializa el repositorio.
